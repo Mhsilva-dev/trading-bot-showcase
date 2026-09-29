@@ -1,0 +1,19 @@
+node_modules/
+web/node_modules/
+web/dist/
+
+# segredos — nunca versionar
+.env
+.env.*
+!.env.example
+secrets/
+*.pem
+*.key
+
+# dados e logs privados
+data/
+logs/
+*.db
+*.db-shm
+*.db-wal
+*.log

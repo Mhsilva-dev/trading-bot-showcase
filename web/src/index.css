@@ -1,0 +1,49 @@
+@import "tailwindcss";
+
+/* Tokens do painel (dark mode). Cores de série validadas contra a superfície
+   com o validador de paleta (CVD / contraste). Status = verde/amarelo/laranja/vermelho,
+   sempre acompanhados de ícone + texto. */
+@theme {
+  --color-bg: #0b0f17;
+  --color-surface: #131722;
+  --color-surface-2: #1a1f2c;
+  --color-border: #262c3b;
+  --color-ink: #e8ebf2;
+  --color-ink-2: #a3aabb;
+  --color-ink-3: #6c7489;
+  --color-series-1: #3987e5;
+  --color-series-2: #d95926;
+  --color-series-3: #9085e9;
+  --color-good: #22b35e;
+  --color-warn: #fab219;
+  --color-serious: #ec835a;
+  --color-bad: #e25555;
+  --font-sans: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
+}
+
+html, body, #root { height: 100%; }
+body {
+  margin: 0;
+  background: var(--color-bg);
+  color: var(--color-ink);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+  color-scheme: dark;
+}
+
+.tabular { font-variant-numeric: tabular-nums; }
+
+/* Scrollbar discreta */
+* { scrollbar-width: thin; scrollbar-color: #2b3244 transparent; }
+
+@keyframes pulse-dot { 0%, 100% { opacity: 1; } 50% { opacity: .35; } }
+.pulse-dot { animation: pulse-dot 1.6s ease-in-out infinite; }
+@keyframes fade-in { from { opacity: 0; transform: translateY(4px); } to { opacity: 1; transform: none; } }
+.fade-in { animation: fade-in .2s ease-out; }
+@keyframes flash { from { background: rgba(57,135,229,.18); } to { background: transparent; } }
+.flash { animation: flash 1.2s ease-out; }
+
+@media (prefers-reduced-motion: reduce) {
+  .pulse-dot, .fade-in, .flash { animation: none; }
+}
